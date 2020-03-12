@@ -15,7 +15,31 @@
                     $("#workForm").hide();
                 }
             });
+
+            $("#work_experience_yes").click(function(){
+                var test = $(this).val();
+                if(test == "yes") {
+                    $("#one_more_job").show();
+                } else {
+                    $("#one_more_job").hide();
+                }
+            });
+
+            $("#work_experience_no").click(function(){
+                $("#one_more_job").hide();
+            });
+
+            // $("#one_more_job").click(function() {
+            //     var workForm = $("#workForm");
+            //     var clone = workForm.clone();
+            //     clone.appendTo(workForm);
+            // });
+            $('#one_more_job').on('click', function() {
+                $('#insideWorkForm').clone().appendTo("#workForm");
+            });
+            
         });
+        
 
 
         // function displayWorkForm() {

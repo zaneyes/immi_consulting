@@ -37,15 +37,15 @@
         <option value="notSure">Not sure</option>
     </select>
     <label for="destprovince">Destination</label><br><br>
-
+    <div>
     <p>Marital Status</p>
-    <input type="radio" id="single" name="maritalStatus" value="single">
-    <label for="single">Single</label>
-    <input type="radio" id="married" name="maritalStatus" value="married">
-    <label for="married">Married</label>
-    <input type="radio" id="commonLaw" name="maritalStatus" value="commonLaw">
-    <label for="commonLaw">Common-Law Partner</label><br><br>
-
+        <input type="radio" id="single" name="maritalStatus" value="single">
+        <label for="single">Single</label>
+        <input type="radio" id="married" name="maritalStatus" value="married">
+        <label for="married">Married</label>
+        <input type="radio" id="commonLaw" name="maritalStatus" value="commonLaw">
+        <label for="commonLaw">Common-Law Partner</label><br>
+    </div>
     
     </fieldset><br>
     <fieldset>
@@ -122,6 +122,20 @@
             <option value="<?php echo $educationLevel; ?>"><?php echo $educationLevel; ?></option>
             <?php endforeach ?>
         </select>
+        <div>
+            <p>Did you complete the mentioned program?</p>
+            <input type="radio" id="program_yes" name="program_completion" value="program_yes">
+                <label for="program_yes">Yes</label><br>
+            <input type="radio" id="program_no" name="program_completion" value="program_no">
+                <label for="program_no">No</label>
+        </div>
+        <div>
+            <p>Location</p>
+            <input type="radio" id="edu_inside_canada" name="edu_location" value="edu_inside_canada">
+                <label for="edu_inside_canada">Inside Canada</label><br>
+            <input type="radio" id="edu_outside_canada" name="edu_location" value="edu_outside_canada">
+                <label for="edu_outside_canada">Outside Canada</label>
+        </div>
     </fieldset>
     <fieldset>
         <legend>Work Experience</legend>
@@ -131,15 +145,55 @@
         <input type="radio" id="work_experience_no" name="work_experience" value="no">
         <label for="work_experience_no">No</label>
         <div id="workForm" style="display:none;" >
-            <label for="work_experience_dropdown">Occupation</label>
-            <input required list="work_experience_dropdown" name="work_experience_input" id="work_experience_input">
-            <datalist name="work_experience_dropdown" id="work_experience_dropdown">
-                <?php foreach($nocs as $noc): ?>
-                <option value="<?php echo $noc->noc_title; ?>" name="<?php echo $noc->noc_numeric_code ?>">
-                <?php endforeach ?>
-            </datalist>
+        <br>
+            <div id="insideWorkForm">
+                <input required list="work_experience_dropdown" name="work_experience_input" id="work_experience_input" placeholder="Please search for the best matching category..." size="45">
+                <datalist name="work_experience_dropdown" id="work_experience_dropdown">
+                    <?php foreach($nocs as $noc): ?>
+                    <option value="<?php echo $noc->noc_title; ?>" name="<?php echo $noc->noc_numeric_code ?>">
+                    <?php endforeach ?>
+                </datalist>
+                <label for="work_experience_dropdown">Occupation</label><br><br>
+                <select name="work_length" id="work_length">
+                    <option value="Select">Select</option>
+                    <?php foreach($workLengths as $workLength): ?>
+                    <option value="<?php echo $workLength; ?>"><?php echo $workLength; ?></option>
+                    <?php endforeach ?>
+                </select>
+                <label for="work_length">Length of Work</label><br><br>
+                <select name="recent_work" id="recent_work">
+                    <option value="Select">Select</option>
+                    <?php foreach($recentWorks as $recentWork): ?>
+                    <option value="<?php echo $recentWork; ?>"><?php echo $recentWork; ?></option>
+                    <?php endforeach ?>
+                </select>
+                <label for="recent_work">When</label><br><br>
+                <div>
+                    <p>Work Hours</p>
+                    <input type="radio" id="full_time" name="work_hours" value="full_time">
+                        <label for="full_time">Full Time Job (At least 30 hours per week)</label><br>
+                    <input type="radio" id="part_time" name="work_hours" value="part_time">
+                        <label for="part_time">Part Time Job (At least 15 hours per week)</label><br>
+                    <input type="radio" id="other" name="work_hours" value="other">
+                        <label for="other">Other (Less than 15 hours per week)</label>
+                </div>
+                <div>
+                    <p>Job Type</p>
+                    <input type="radio" id="payroll" name="job_type" value="payroll">
+                        <label for="payroll">Work for any organization</label><br>
+                    <input type="radio" id="self_employed" name="job_type" value="self_employed">
+                        <label for="self_employed">Self-employed or working for your own business</label>
+                </div>
+                <div>
+                    <p>Location</p>
+                    <input type="radio" id="work_inside_canada" name="work_location" value="work_inside_canada">
+                        <label for="work_inside_canada">Inside Canada</label><br>
+                    <input type="radio" id="work_outside_canada" name="work_location" value="work_outside_canada">
+                        <label for="work_outside_canada">Outside Canada</label>
+                </div>
+            </div>
         </div>
-            
+        <input type="button" id="one_more_job" value="Add Another Job" style="display:none;" ><br><br>
     </fieldset>
     
 

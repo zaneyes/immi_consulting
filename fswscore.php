@@ -23,7 +23,8 @@ $template->canadaProvinces = array(
                                 );
 $template->languageLevels = array("Expert", "Very Good", "Good", "Competent", "Modest", "Limited", "Extremely Limited");
 $template->educationLevels = array("Doctoral Level", "Master's Level or Professional Degree", "Two or more post-secondary credentials, one of which was for three years or longer in duration", "Three-year or longer post-secondary credential (e.g. Bachelor’s degree)", "Two-year post-secondary credential", "One-year post-secondary credential", "Secondary school");
-
+$template->workLengths = array("Less than a year", "1 year", "2 years", "3 years", "4 years", "5 years", "6 years or more");
+$template->recentWorks = array("Current Working", "Finished less than 1 year ago", "Finished less than 2 year ago", "Finished less than 3 year ago", "Finished less than 4 year ago", "Finished less than 5 year ago", "Finished less than 6 year ago", "Finished less than 7 year ago", "Finished less than 8 year ago", "Finished less than 9 year ago", "Finished less than 10 year ago");
 $template->nocs = $fswscore -> getAllNocs();
 
 echo $template;
