@@ -199,7 +199,77 @@
         </div>
         
     </fieldset>
-    
+    <fieldset>
+        <legend>Arranged Employment in Canada</legend>
+        <p>Do you have a written job offer provided by a Canadian employer?</p>
+        <input type="radio" id="job_offer_yes" name="ca_job_offer" value="yes">
+        <label for="job_offer_yes">Yes</label>
+        <input type="radio" id="job_offer_no" name="ca_job_offer" value="no">
+        <label for="job_offer_no">No</label>
+        <div id="job_offer_form" style="display:none;" >
+        <br>
+            
+            <div id="inside_job_offer_form">
+                <input required list="job_offer_dropdown" name="job_offer_input" id="job_offer_input" placeholder="Please search for the best matching category..." size="45">
+                <datalist name="job_offer_dropdown" id="job_offer_dropdown">
+                    <?php foreach($nocs as $noc): ?>
+                    <option value="<?php echo $noc->noc_title; ?>" name="<?php echo $noc->noc_numeric_code ?>">
+                    <?php endforeach ?>
+                </datalist>
+                <label for="job_offer_dropdown">Occupation</label><br><br>
+                <div>
+                    <select name="job_province" id="job_province">
+                        <option value="default">Select Province/Territory</option>
+                        <?php foreach($canadaProvinces as $canadaProvince): ?>
+                        <option value="<?php echo $canadaProvince; ?>"><?php echo $canadaProvince; ?></option>
+                        <?php endforeach; ?>
+                        <option value="notSure">Not sure</option>
+                    </select>
+                    <label for="job_province">Destination</label><br><br>
+                </div>
+                <div>
+                    <p>What is the duration of the contract?</p>
+                    <input type="radio" id="two_year_plus" name="contract_duration" value="two_year_plus">
+                        <label for="two_year_plus">Two years or longer</label><br>
+                    <input type="radio" id="one_to_two" name="contract_duration" value="one_to_two">
+                        <label for="one_to_two">Between one and two years</label><br>
+                    <input type="radio" id="half_to_one" name="contract_duration" value="half_to_one">
+                        <label for="half_to_one">Between six months and one year</label><br>
+                    <input type="radio" id="less_than_half" name="contract_duration" value="less_than_half">
+                        <label for="less_than_half">Less than six months</label>
+                </div>
+                <div>
+                    <p>Work Hours</p>
+                    <input type="radio" id="full_time" name="work_hours" value="full_time">
+                        <label for="full_time">Full Time Job (At least 30 hours per week)</label><br>
+                    <input type="radio" id="part_time" name="work_hours" value="part_time">
+                        <label for="part_time">Part Time Job (At least 15 hours per week)</label><br>
+                    <input type="radio" id="other" name="work_hours" value="other">
+                        <label for="other">Other (Less than 15 hours per week)</label>
+                </div>
+                <div>
+                    <p>Is this job offer supported by LMIA (Labour Market Impact Assessment)?</p>
+                    <input type="radio" id="lmia_yes" name="lmia_radio" value="yes">
+                        <label for="lmia_yes">Yes</label><br>
+                    <input type="radio" id="lmia_no" name="lmia_radio" value="no">
+                        <label for="lmia_no">No</label><br>
+                    <input type="radio" id="lmia_idk" name="lmia_radio" value="idk">
+                        <label for="lmia_idk">I don't know</label>
+                </div>
+                <div id="lmia_exempt_form" style="display:none;" >
+                <p>Is the job being offered exempt from a LMIA by an international trade agreement (e.g. NAFTA) or a federal-provincial agreement?</p>
+                    <input type="radio" id="lmia_exempt_yes" name="lmia_exempt_radio" value="yes">
+                        <label for="lmia_exempt_yes">Yes</label><br>
+                    <input type="radio" id="lmia_exempt_no" name="lmia_exempt_radio" value="no">
+                        <label for="lmia_exempt_no">No</label><br>
+                    <input type="radio" id="lmia_exempt_idk" name="lmia_exempt_radio" value="idk">
+                        <label for="lmia_exempt_idk">I don't know</label>
+                </div>
+                
+                
+            </div>
+        </div>
+    </fieldset>
 
     
 

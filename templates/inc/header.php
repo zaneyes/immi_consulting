@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         $(document).ready(function(){
+            // counter for assigning id for additional work form
             var cloneCounter = 1;
             $("input[name$='work_experience']").click(function() {
                 var test = $(this).val();
@@ -16,6 +17,24 @@
                 } else {
                     $("#workForm").hide();
                     $('#one_more_job').hide();
+                }
+            });
+
+            $("input[name$='ca_job_offer']").click(function() {
+                var test = $(this).val();
+                if(test == "yes") {
+                    $("#job_offer_form").show();
+                } else {
+                    $("#job_offer_form").hide();
+                }
+            });
+
+            $("input[name$='lmia_radio']").click(function() {
+                var test = $(this).val();
+                if(test == "no") {
+                    $("#lmia_exempt_form").show();
+                } else {
+                    $("#lmia_exempt_form").hide();
                 }
             });
 
