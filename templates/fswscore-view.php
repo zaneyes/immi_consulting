@@ -146,7 +146,9 @@
         <label for="work_experience_no">No</label>
         <div id="workForm" style="display:none;" >
         <br>
+            
             <div id="insideWorkForm">
+                <span id="work_form_close">X</span>
                 <input required list="work_experience_dropdown" name="work_experience_input" id="work_experience_input" placeholder="Please search for the best matching category..." size="45">
                 <datalist name="work_experience_dropdown" id="work_experience_dropdown">
                     <?php foreach($nocs as $noc): ?>
@@ -191,9 +193,11 @@
                     <input type="radio" id="work_outside_canada" name="work_location" value="work_outside_canada">
                         <label for="work_outside_canada">Outside Canada</label>
                 </div>
+                
             </div>
+            <input type="button" id="one_more_job" name="one_more_job" value="Add Another Job" style="display:none;" ><br><br>
         </div>
-        <input type="button" id="one_more_job" value="Add Another Job" style="display:none;" ><br><br>
+        
     </fieldset>
     
 

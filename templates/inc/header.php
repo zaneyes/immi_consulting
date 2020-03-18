@@ -7,50 +7,37 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         $(document).ready(function(){
+            var cloneCounter = 1;
             $("input[name$='work_experience']").click(function() {
                 var test = $(this).val();
                 if(test == "yes") {
                     $("#workForm").show();
+                    $('#one_more_job').show();
                 } else {
                     $("#workForm").hide();
+                    $('#one_more_job').hide();
                 }
             });
 
-            $("#work_experience_yes").click(function(){
-                var test = $(this).val();
-                if(test == "yes") {
-                    $("#one_more_job").show();
-                } else {
-                    $("#one_more_job").hide();
-                }
-            });
 
-            $("#work_experience_no").click(function(){
-                $("#one_more_job").hide();
-            });
-
-            // $("#one_more_job").click(function() {
-            //     var workForm = $("#workForm");
-            //     var clone = workForm.clone();
-            //     clone.appendTo(workForm);
-            // });
+            
             $('#one_more_job').on('click', function() {
-                $('#insideWorkForm').clone().appendTo("#workForm");
+                // clone form with not working remove button
+                var clonedForm = $('#insideWorkForm').clone();
+                clonedForm.append('<input type="button" id="aaa" name="one_more_job" value="Remove" ><br><br>');
+                clonedForm.appendTo('#workForm');
+                // -------------------
+
+                
+
             });
             
+
+          
         });
         
 
-
-        // function displayWorkForm() {
-        //     var workForm = document.getElementsByName('work_experience');
-        //     for(i=0; i<workForm.length; i++) {
-        //         if(workForm[i].checked) {
-        //             document.getElementById("workForm").innerHTML = 
-        //         }
-        //     }
-        // }
-        
     </script>
+    <link rel="stylesheet" type="text/css" href="res/css/main.css">
 </head>
 <body>
