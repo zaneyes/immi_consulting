@@ -38,6 +38,24 @@
                 }
             });
 
+            $("input[name$='family_radio']").click(function() {
+                var test = $(this).val();
+                if(test == "yes") {
+                    $("#family_form").show();
+                    $('#one_more_relative').show();
+                } else {
+                    $("#family_form").hide();
+                    $('#one_more_relative').hide();
+                }
+            });
+
+            $('#one_more_relative').on('click', function() {
+                // clone form with not working remove button
+                var clonedForm = $('#inside_family_form').clone();
+                clonedForm.append('<input type="button" id="aaa" name="one_more_relative" value="Remove" ><br><br>');
+                clonedForm.appendTo('#family_form');
+                // -------------------
+            });
 
             
             $('#one_more_job').on('click', function() {
@@ -46,9 +64,6 @@
                 clonedForm.append('<input type="button" id="aaa" name="one_more_job" value="Remove" ><br><br>');
                 clonedForm.appendTo('#workForm');
                 // -------------------
-
-                
-
             });
             
 
